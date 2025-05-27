@@ -1,0 +1,70 @@
+.main {
+  width: 100%;
+  height: 50vh;
+  background-image: url("../../../assets/products_landing_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* karartma etkisi */
+  z-index: 1;
+}
+
+.content {
+  max-width: 1300px;
+  margin: 0 auto;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+}
+.image {
+  width: 368px;
+  height: 368px;
+}
+.right {
+   padding:5rem ;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.right div {
+}
+.title {
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  font-family: "Teko", sans-serif;
+}
+.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  font-family: "Teko", sans-serif;
+}
+.button {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--red);
+  text-decoration: none;
+  outline: none;
+  border: none;
+  width: 120px;
+}
+.button span {
+  margin-right: 0.5rem;
+  color: #fff;
+}

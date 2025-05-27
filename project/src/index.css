@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+}
+
+:root {
+  --red: #D9232A;
+  --dark_grey: #2A2A2A;
+  --blue_text: #244C6F;
+  --blue_bg: #1E3040;
+}

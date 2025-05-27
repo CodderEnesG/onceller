@@ -1,0 +1,102 @@
+.services {
+  text-align: center;
+  padding: 4rem 1rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.subTitle {
+  color: #d80000;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.mainTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.description {
+   margin: 0 auto 3rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+ }
+
+.card {
+  background: #fff;
+  padding: 1rem;
+  width: 330px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease-in-out;
+
+}
+.card:hover{
+      background: #f4f4f4;
+
+}
+
+.image {
+  width: 260px;
+  height: 135px;
+  border-radius: 6px;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  margin: 1rem 0 0.5rem;
+  color: var(--blue_text);
+}
+
+.moreLink {
+  color: var(--red);
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+  margin-left: 4px;
+}
+
+.cta {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.callButton {
+  display: flex;
+  background-color: var(--red);
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  flex-direction: row;
+  width: 212px;
+  align-items: center;
+  text-align: start;
+}
+
+.phoneIcon {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+.endustry_text{
+    display: flex;
+    color: var(--blue_text);
+}
