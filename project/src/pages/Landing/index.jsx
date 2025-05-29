@@ -4,6 +4,10 @@ import HeroSection from './HeroSection/HeroSection'
 import About from './About/About'
 import Services from './Services/Services'
 import Products from './Products/Products'
+import Gallery from './Gallery/Gallery'
+import ContactUs from './ContactUs/ContactUs'
+import Footer from '../../components/Footer/Footer'
+
 
 const Landing = () => {
   return (
@@ -13,6 +17,10 @@ const Landing = () => {
 <About/>
 <Services/>
 <Products/>
+<Gallery/>
+<ContactUs/>
+<Footer/>
+
 
     </>
   )

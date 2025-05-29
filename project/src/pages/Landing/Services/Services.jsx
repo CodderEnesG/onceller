@@ -50,7 +50,7 @@ const Services = () => {
         <h3 className={s.endustry_text}>Endüstriyel Çözümler İçin Arayın!</h3>
         <a href="tel:02125495057" className={s.callButton}>
           <span className={s.phoneIcon}><PhoneIcon/></span>
-          <span style={{fontSize:"16px"}}>Bizi Ara! <br />0 (212) 549 50 57</span> 
+          <span style={{fontSize:"1rem"}}>Bizi Ara! <br />0 (212) 549 50 57</span> 
         </a>
       </div>
     </section>

@@ -4,6 +4,7 @@ import DataIcon from "../../../assets/svg/data";
 import Logo from "../../../assets/logo_about.png";
 import LogoIcon from "../../../assets/logo_icon_about.png"; // yolunu sen ayarlarsın
 import AboutBg from "../../../assets/about_bg.jpg";
+import Tools from "../../../assets/svg/tools";
 
 const AboutSection = () => {
   const aboutText = `
@@ -21,35 +22,54 @@ Tecrübeli ekibimizle birlikte, teknolojiyi yakından takip ederek sektörün ge
   return (
     <div className={s.about}>
       <div className={s.container}>
-        <div className={s.left}>
-          <img src={AboutBg} alt="about" className={s.image} />
-          <div className={s.experienceBox}>
-            <DataIcon className={s.icon} />
-            <div>
-              <h2>10 +</h2>
-              <p>Yıl Tecrübe</p>
+        <div className={s.upper_container}>
+          <div className={s.upper_item}>
+            <Tools style={{marginRight:"2.5rem"}} />
+            Hızlı ve Etkin Üretim
+          </div>
+           <div className={s.upper_item}>
+ Kalite Odaklı Üretim          </div>
+         <div className={s.upper_box}></div>
+
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            width: "100%",
+            gap: "2rem",
+          }}
+        >
+          <div className={s.left}>
+            <img src={AboutBg} alt="about" className={s.image} />
+            <div className={s.experienceBox}>
+              <DataIcon className={s.icon} />
+              <div>
+                <h2>10 +</h2>
+                <p>Yıl Tecrübe</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={s.right}>
-          <h3 className={s.titleRed}>Hakkımızda</h3>
-          {aboutText.split("\n\n").map((para, idx) => (
-            <p key={idx}>{para}</p>
-          ))}
-          <h4 className={s.titleRed}>Misyonumuz</h4>
-          <p>{missionText}</p>
-          <h4 className={s.titleRed}>Vizyonumuz</h4>
-          <p>{visionText}</p>
-          <div className={s.bottom}>
-            <div>
-              <img src={LogoIcon} alt="logo" className={s.logo} />
+          <div className={s.right}>
+            <h3 className={s.titleRed}>Hakkımızda</h3>
+            {aboutText.split("\n\n").map((para, idx) => (
+              <p key={idx}>{para}</p>
+            ))}
+            <h4 className={s.titleRed}>Misyonumuz</h4>
+            <p>{missionText}</p>
+            <h4 className={s.titleRed}>Vizyonumuz</h4>
+            <p>{visionText}</p>
+            <div className={s.bottom}>
+              <div>
+                <img src={LogoIcon} alt="logo" className={s.logo} />
 
-              <img src={Logo} alt="logo" className={s.logo} />
+                <img src={Logo} alt="logo" className={s.logo} />
+              </div>
+
+              <button className={s.catalogButton}>
+                Kataloglarımız <span className={s.chevron}>▼</span>
+              </button>
             </div>
-
-            <button className={s.catalogButton}>
-              Kataloglarımız <span className={s.chevron}>▼</span>
-            </button>
           </div>
         </div>
       </div>

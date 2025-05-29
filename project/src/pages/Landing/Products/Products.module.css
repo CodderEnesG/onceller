@@ -63,8 +63,14 @@
   outline: none;
   border: none;
   width: 120px;
+  justify-content: space-between;
+   
+
 }
 .button span {
   margin-right: 0.5rem;
   color: #fff;
+   font-family: "Teko", sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
 }
