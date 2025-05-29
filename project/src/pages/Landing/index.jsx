@@ -7,6 +7,7 @@ import Products from './Products/Products'
 import Gallery from './Gallery/Gallery'
 import ContactUs from './ContactUs/ContactUs'
 import Footer from '../../components/Footer/Footer'
+import Brands from './Brands/Brands'
 
 
 const Landing = () => {
@@ -15,6 +16,7 @@ const Landing = () => {
        <Navbar/>
 <HeroSection/>
 <About/>
+<Brands/>
 <Services/>
 <Products/>
 <Gallery/>

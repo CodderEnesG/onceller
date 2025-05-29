@@ -7,20 +7,26 @@
 
 .subTitle {
   color: #d80000;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1rem;
+    font-family: "Teko" , sans-serif;
+
 }
 
 .mainTitle {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 500;
   margin: 0.5rem 0;
+    font-family: "Teko" , sans-serif;
+
 }
 
 .description {
    margin: 0 auto 3rem;
   font-size: 1rem;
-  color: #444;
+  color: rgba(108, 108, 108, 1);
+    font-family: "Rubik" , sans-serif;
+
 }
 
 .cards {
@@ -53,6 +59,7 @@
   font-size: 1.3rem;
   margin: 1rem 0 0.5rem;
   color: var(--blue_text);
+  font-family: "Teko" , sans-serif;
 }
 
 .moreLink {
@@ -61,8 +68,10 @@
   font-size: 0.9rem;
   text-decoration: none;
   display: flex;
-    align-items: center;
-    justify-content: center;
+     justify-content: center;
+       font-family: "Teko" , sans-serif;
+
+
 }
 
 .icon {
@@ -99,4 +108,8 @@
 .endustry_text{
     display: flex;
     color: var(--blue_text);
+        font-family: "Teko" , sans-serif;
+        font-weight: 600;
+        font-size: 2rem;
+
 }
