@@ -151,3 +151,9 @@
   height: 35px;
   margin-right: 0.5rem;
 }
+
+.contact_mail{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}

@@ -72,9 +72,9 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className={s.column_bottom_container}>
+          <div style={{minHeight:"3.5em"}} className={s.column_bottom_container}>
             <MailIcon />
-            <span>
+            <span >
            info@oncellerhidrolik.com
             </span>
           </div>
