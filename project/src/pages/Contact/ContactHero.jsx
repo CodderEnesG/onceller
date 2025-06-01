@@ -7,7 +7,7 @@ const ContactHero = () => {
         <div className={s.overlay}></div>
         <div className={s.hero_content}>
           <h1 className={s.title}>Bize Ulaş</h1>
-          <p className={s.breadcrumb}>Ana sayfa / <span>Bize Ulaş</span></p>
+          <p className={s.breadcrumb}><a href="/">Ana sayfa</a> / <span>Bize Ulaş</span></p>
         </div>
       </section>  )
 }

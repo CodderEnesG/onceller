@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import s from "../Gallery.module.css";
-import Img from "../../../assets/about_box.png";
-import Img2 from "../../../assets/hidrolik.jpg";
-import Icon from "../../../assets/svg/buyutec"
+import s from "./Gallery.module.css";
+import Img from "../../assets/about_box.png";
+import Img2 from "../../assets/hidrolik.jpg";
+import Icon from "../../assets/svg/buyutec"
 const images = [
   Img, Img2, Img, Img2, Img, Img2, Img
 ];

@@ -5,7 +5,7 @@ import ZincirkHero from "./ZincirHero";
 import Zincir from "./Zincir";
 import ContactUs from "../../Landing/ContactUs/ContactUs";
 
-const PnomatikMain = () => {
+const ZincirMain = () => {
   return (
     <>
       <Navbar />
@@ -17,4 +17,4 @@ const PnomatikMain = () => {
   );
 };
 
-export default PnomatikMain;
+export default ZincirMain;

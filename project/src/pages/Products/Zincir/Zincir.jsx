@@ -15,7 +15,7 @@ const extractSlug = (url) => {
 const buildCategoryTree = (items) => {
   const tree = {};
   for (const item of items) {
-    const trimmed = item.categories?.slice(1); // Ana sayfayı atla
+    const trimmed = item.categories?.slice(2); // "Ana Sayfa /", "Urunler /" atlanır
     let current = tree;
     for (const level of trimmed) {
       current[level] = current[level] || {};
@@ -45,7 +45,9 @@ const CategoryMenu = ({ tree, navigate, currentSlug, level = 0 }) => {
               style={{ marginLeft: `${level * 20}px` }}
               onClick={() => toggle(key)}
             >
-                   <span style={{ fontFamily: "Teko , sans-serif" }}>{key}</span>
+              <span style={{ fontFamily: "Teko , sans-serif" }}>
+                {key.replace("/", "")}
+              </span> 
               <ChevDown />
             </div>
             {open[key] && (
@@ -91,35 +93,37 @@ const Zincir = () => {
 
   return (
     <div className={s.container}>
-              <div className={s.content2}>
-        
-      <aside className={s.sidebar}>
-        <h2 className={s.title}>Zincir Ürünleri</h2>
-        <CategoryMenu tree={tree} navigate={navigate} currentSlug={slug} />
-      </aside>
+      <div className={s.content2}>
+        <aside className={s.sidebar}>
+          <h2 className={s.title}>Zincir Ürünleri</h2>
+          <CategoryMenu tree={tree} navigate={navigate} currentSlug={slug} />
+        </aside>
 
-      <main className={s.content}>
-        <img src={selectedProduct.prodImage} alt="asdlkfjlsk" />
-        {selectedProduct ? (
-          <div className={s.contentInner}>
-            {parse(
-              selectedProduct.htmlContent.replace(
-                /src="(.*?)"/g,
-                (match, src) => {
-                  if (src.startsWith("/")) {
-                    return `src="https://tr.renold.com${src}"`;
-                  }
-                  return `src="${src}"`;
-                }
-              )
-            )}
-          </div>
-        ) : (
-          <p className={s.empty}>Lütfen bir ürün seçin.</p>
-        )}
-      </main>
-    </div>    </div>
-
+        <main className={s.content}>
+            {selectedProduct && (
+                          <img src={selectedProduct?.prodImage} alt="asdlkfjlsk" />
+            )}  
+          {selectedProduct ? (
+            <div className={s.contentInner}>
+              {parse(
+                selectedProduct.htmlContent
+                  // 1. Resim URL'lerini düzelt
+                  .replace(/src="(.*?)"/g, (match, src) => {
+                    if (src.startsWith("/")) {
+                      return `src="https://tr.renold.com${src}"`;
+                    }
+                    return `src="${src}"`;
+                  })
+                  // 2. Breadcrumb'ları sil
+                  .replace(/<ul class="breadcrumbs">[\s\S]*?<\/ul>/, "")
+              )}
+            </div>
+          ) : (
+            <p className={s.empty}>Lütfen bir ürün seçin.</p>
+          )}
+        </main>
+      </div>{" "}
+    </div>
   );
 };
 

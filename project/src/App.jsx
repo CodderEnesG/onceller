@@ -14,10 +14,13 @@ function App() {
       <Route path="/products" element={<Products />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/contact_us" element={<Contact />} />
-      <Route path="/products/hidrolik" element={<Hidrolik />} />
-      <Route path="/products/hidrolik/:productSlug" element={<Hidrolik />} />
+       <Route path="/products/hidrolik/:productSlug" element={<Hidrolik />} />
       <Route path="/products/pnomatik/:productSlug" element={<Pnomatik />} />
       <Route path="/products/zincir/:slug" element={<Zincir />} />
+
+       <Route path="/products/hidrolik" element={<Hidrolik />} />
+      <Route path="/products/pnomatik" element={<Pnomatik />} />
+      <Route path="/products/zincir" element={<Zincir />} />
     </Routes>
   );
 }

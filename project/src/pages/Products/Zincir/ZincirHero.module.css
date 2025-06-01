@@ -35,7 +35,7 @@
   font-weight: 500;
 }
 
-.breadcrumb {
+.breadcrumb a {
   font-size: 1rem;
   font-weight: 700;
     font-family: "Rubik" ,sans-serif;

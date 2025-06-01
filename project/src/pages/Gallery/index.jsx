@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import GalleryHero from "./GalleryHero/GalleryHero";
- import GalleryContent from "./GalleryContent/GalleryContent";
+import GalleryHero from "./GalleryHero/";
+ import GalleryContent from "./GalleryContent/";
 
 const Gallery = () => {
   return (

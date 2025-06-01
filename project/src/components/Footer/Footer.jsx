@@ -30,18 +30,18 @@ const Footer = () => {
               <h1 className={s.column_title}>Pratik bağlantılar</h1>
             </div>
             <div className={s.column_items}>
-              <div className={s.column_item}>
+              <a href="/" className={s.column_item}>
                 <ArrowButton />
                 <span>Anasayfa</span>
-              </div>
-              <div className={s.column_item}>
+              </a>
+              <a href="/products"  className={s.column_item}>
                 <ArrowButton />
                 <span>Ürünlerimiz</span>
-              </div>
-              <div className={s.column_item}>
+              </a>
+              <a href="/gallery"  className={s.column_item}>
                 <ArrowButton />
                 <span>Galeri</span>
-              </div>
+              </a>
             </div>
           </div>
           <div className={s.column_bottom_container}>
@@ -58,18 +58,18 @@ const Footer = () => {
               <h1 className={s.column_title}>Hizmetlerimiz    </h1>
             </div>
             <div className={s.column_items}>
-              <div className={s.column_item}>
+              <a href="/products/hidrolik"  className={s.column_item}>
                 <ArrowButton />
                 <span>Hidrolik</span>
-              </div>
-              <div className={s.column_item}>
+              </a>
+              <a href="/products/pnomatik" className={s.column_item}>
                 <ArrowButton />
                 <span>Pnömatik</span>
-              </div>
-              <div className={s.column_item}>
+              </a>
+              <a href="/products/zincir" className={s.column_item}>
                 <ArrowButton />
                 <span>Zincir</span>
-              </div>
+              </a>
             </div>
           </div>
           <div style={{minHeight:"3.5em"}} className={s.column_bottom_container}>

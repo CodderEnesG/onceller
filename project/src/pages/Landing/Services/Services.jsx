@@ -9,17 +9,17 @@ import ArrowButton from "../../../assets/svg/chevron_button"
   {
     title: "Hidrolik",
     image: Hidrolik, 
-    link: "/hidrolik",
+    link: "/products/hidrolik",
   },
   {
     title: "Pnömatik",
     image: Pnomatik,  
-    link: "/pnomatik",
+    link: "/products/pnomatik",
   },
   {
     title: "Zincir",
     image: Zincir,  
-    link: "/zincir",
+    link: "/products/zincir",
   },
 ];
 

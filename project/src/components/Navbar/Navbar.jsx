@@ -10,6 +10,7 @@ import SocialButton3 from "../SocialButton/SocialButton3";
 import { FaChevronDown } from "react-icons/fa6";
 import ChevDown from "../../assets/svg/chev_down";
 import Phone from "../../assets/svg/phone";
+import { Link } from "react-scroll";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(null); // "products", "catalog", null
@@ -43,14 +44,21 @@ function Navbar() {
 
         {/* ALT */}
         <div className={s.content_down}>
-          <div className={s.logo_container}>
+          <a href="/" className={s.logo_container}>
             <img src={IconLogo} alt="icon" className={s.logo_icon} />
             <img src={TextLogo} alt="text" className={s.logo_text} />
-          </div>
+          </a>
 
           <ul className={s.menu}>
-            <li>Anasayfa</li>
-            <li>Hakkımızda</li>
+            <a href="/">Anasayfa</a>
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              offset={-100} // sabit navbar varsa ayarla
+            >
+              Hakkımızda
+            </Link>
 
             <li className={s.dropdown} onClick={() => toggleMenu("products")}>
               Ürünlerimiz
@@ -61,16 +69,19 @@ function Navbar() {
               />
               {openMenu === "products" && (
                 <ul className={s.dropdown_menu}>
-                  <li>Hidrolik Silindirler</li>
-                  <li>Pompa Sistemleri</li>
-                  <li>Yedek Parçalar</li>
+                  <a href="/products/hidrolik">Hidrolik</a>
+                  <a href="/products/pnomatik">Pnömatik</a>
+                  <a href="/products/zincir">Zincirler</a>
                 </ul>
               )}
             </li>
 
-            <li>Galeri</li>
-            <li>Bize ulaş</li>
-            <li className={s.dropdown_catalog} onClick={() => toggleMenu("catalog")}>
+            <a href="/gallery">Galeri</a>
+            <a href="/contact_us">Bize ulaş</a>
+            <li
+              className={s.dropdown_catalog}
+              onClick={() => toggleMenu("catalog")}
+            >
               Kataloglarımız
               <ChevDown
                 className={`${s.chevron} ${
@@ -78,19 +89,21 @@ function Navbar() {
                 }`}
               />
               {openMenu === "catalog" && (
-                <ul className={s.dropdown_menu}>
-                  <li>2024 Kataloğu</li>
-                  <li>Teknik Bilgiler</li>
+                <ul style={{ left: "8px" }} className={s.dropdown_menu}>
+                  <a>2024 Kataloğu</a>
+                  <a>Teknik Bilgiler</a>
                 </ul>
               )}
             </li>
           </ul>
 
           <div className={s.phone_container}>
-            <Phone/>
-            <div  className={s.phone_info_container}>  <span className={s.phone_title}>Bizi ara!</span>
-            <span className={s.phone_number}>0 (212) 549 50 57</span></div>
-          
+            <Phone />
+            <div className={s.phone_info_container}>
+              {" "}
+              <span className={s.phone_title}>Bizi ara!</span>
+              <span className={s.phone_number}>0 (212) 549 50 57</span>
+            </div>
           </div>
         </div>
       </div>

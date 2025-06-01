@@ -20,7 +20,7 @@ Tecrübeli ekibimizle birlikte, teknolojiyi yakından takip ederek sektörün ge
   const visionText =
     "Miras edindiğimiz güvenilirlik, sadakat, devamlılık ve saygınlığı bir marka olarak sürdürmek.";
   return (
-    <div className={s.about}>
+    <div id="about" className={s.about}>
       <div className={s.container}>
         <div className={s.upper_container}>
           <div className={s.upper_item}>
@@ -31,9 +31,12 @@ Tecrübeli ekibimizle birlikte, teknolojiyi yakından takip ederek sektörün ge
           <div className={s.upper_box}>
             <div className={s.upper_box_overlay}></div>
             <div className={s.upper_box_content}>
-              <h2 className={s.upper_box_title}>Üretiminizi Bir Üst Seviyeye Taşıyın!</h2>
+              <h2 className={s.upper_box_title}>
+                Üretiminizi Bir Üst Seviyeye Taşıyın!
+              </h2>
               <p className={s.upper_box_subtitle}>
-Hidrolik, pnömatik ve zincirli transfer sistemlerimizle kesintisiz verim ve maksimum performans garantisi.
+                Hidrolik, pnömatik ve zincirli transfer sistemlerimizle
+                kesintisiz verim ve maksimum performans garantisi.
               </p>
               <h3 className={s.upper_box_cta}>İletişime geç!</h3>
             </div>

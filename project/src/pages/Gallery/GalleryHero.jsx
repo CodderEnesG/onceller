@@ -1,5 +1,5 @@
 import React from 'react'
-    import s from "../Gallery.module.css"
+    import s from "./Gallery.module.css"
 
 const GalleryHero = () => {
   return (
@@ -7,7 +7,7 @@ const GalleryHero = () => {
         <div className={s.overlay}></div>
         <div className={s.hero_content}>
           <h1 className={s.title}>Galeri</h1>
-          <p className={s.breadcrumb}>Ana sayfa / <span>Galeri</span></p>
+          <p className={s.breadcrumb}><a href="/">Ana sayfa</a> / <span>Galeri</span></p>
         </div>
       </section>  )
 }

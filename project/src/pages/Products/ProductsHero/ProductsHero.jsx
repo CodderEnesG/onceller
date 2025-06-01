@@ -7,7 +7,7 @@ const ProductsHero = () => {
         <div className={s.overlay}></div>
         <div className={s.hero_content}>
           <h1 className={s.title}>Ürünlerimiz</h1>
-          <p className={s.breadcrumb}>Ana sayfa / <span>Ürünlerimiz</span></p>
+          <p className={s.breadcrumb}><a href="/products">Ürünlerimiz</a> / <span>Ürünlerimiz</span></p>
         </div>
       </section>  )
 }

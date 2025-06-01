@@ -18,7 +18,7 @@ const Products = () => {
             </h4>
           </div>
           <button className={s.button}>
-            <span>Ürünleri Gör</span>
+            <a href="/products">Ürünleri Gör</a>
             <ArrowButton/>
           </button>
         </div>
