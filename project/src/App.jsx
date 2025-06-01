@@ -4,6 +4,8 @@ import Products from "./pages/Products";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Hidrolik from "./pages/Products/Hidrolik";
+import Pnomatik from "./pages/Products/Pnomatik";
+import Zincir from "./pages/Products/Zincir";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Route path="/contact_us" element={<Contact />} />
       <Route path="/products/hidrolik" element={<Hidrolik />} />
       <Route path="/products/hidrolik/:productSlug" element={<Hidrolik />} />
+      <Route path="/products/pnomatik/:productSlug" element={<Pnomatik />} />
+      <Route path="/products/zincir/:slug" element={<Zincir />} />
     </Routes>
   );
 }

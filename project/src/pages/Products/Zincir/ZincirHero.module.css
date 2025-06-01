@@ -1,0 +1,46 @@
+.hero_section {
+  background-image: url("../../../assets/hidrolik_bg.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height: 545px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(96, 0, 0, 0.53); /* var(--red) yerine burada kullanılabilir */
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.hero_content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  font-family: "Teko" ,sans-serif;
+  font-weight: 500;
+}
+
+.breadcrumb {
+  font-size: 1rem;
+  font-weight: 700;
+    font-family: "Rubik" ,sans-serif;
+    color: var(--red);
+}
+.breadcrumb span {
+  color: #fff;
+}

@@ -1,9 +1,8 @@
-import React, { useEffect , useState } from "react";
+import React, { useEffect ,useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import s from "./Hidrolik.module.css";
-import data from "./hidrolik_data.json";
-import HidrolikHero from "./HidrolikHero";
-import ChevDown from "../../../assets/svg/chev_down_grey";
+import s from "./Pnomatik.module.css";
+import data from "./pnomatik_data.json";
+ import ChevDown from "../../../assets/svg/chev_down_grey";
 import ChevButton from "../../../assets/svg/chevron_button_white";
 import SocialButton from "../../../components/SocialButton/SocialButton";
 import SocialButton2 from "../../../components/SocialButton/SocialButton2";
@@ -25,6 +24,8 @@ const extractNameFromURL = (url) => {
     .join(" ");
   return capitalized;
 };
+
+
 
 const buildCategoryTree = (items) => {
   const tree = {};
@@ -56,6 +57,8 @@ const CategoryMenu = ({
   const toggle = (key) => {
     setOpen((prev) => ({ ...prev, [key]: !prev[key] }));
   };
+
+
 
   return (
     <ul className={s.category_list}>
@@ -91,7 +94,7 @@ const CategoryMenu = ({
                         isSelected ? s.selected : ""
                       }`}
                       onClick={() => {
-                        navigate(`/products/hidrolik/${slug}`);
+                        navigate(`/products/pnomatik/${slug}`);
                         onSelectProduct(product);
                       }}
                       style={{ marginLeft: `${(level + 1) * 15}px` }}
@@ -109,15 +112,14 @@ const CategoryMenu = ({
   );
 };
 
-const Hidrolik = () => {
+const Pnomatik = () => {
   const { productSlug } = useParams();
   const navigate = useNavigate();
-
       const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      setLoading(true); // ürün değişince tekrar yükleniyor durumuna geç
-    }, [productSlug]);
+
+  useEffect(() => {
+    setLoading(true); // ürün değişince tekrar yükleniyor durumuna geç
+  }, [productSlug]);
 
   const allProducts = data;
   const selectedProduct = allProducts.find(
@@ -132,7 +134,7 @@ const Hidrolik = () => {
     <div className={s.container}>
       <div className={s.content}>
         <div className={s.sidebar}>
-          <h2 className={s.title}>Hidrolik Ürünleri</h2>
+          <h2 className={s.title}>Pnomatik Ürünleri</h2>
           <CategoryMenu
             tree={categoryTree}
             onSelectProduct={() => {}}
@@ -167,30 +169,30 @@ const Hidrolik = () => {
         </div>
 
         {/* Orta Resim */}
-       <div className={s.image_container}>
-            {selectedProduct ? (
-              <>
-                {loading && (
-                  <div className={s.loadingOverlay}>
-                    <div className={s.spinner}></div>
-                    <p>Yükleniyor...</p>
-                  </div>
-                )}
-                <img
-                  src={selectedProduct.imageSrc || NoImage}
-                  onLoad={() => setLoading(false)}
-                  onError={(e) => {
-                    e.currentTarget.src = NoImage;
-                    setLoading(false);
-                  }}
-                  alt="Ürün"
-                  style={{ display: loading ? "none" : "block" }}
-                />
-              </>
-            ) : (
-              <p>Lütfen bir ürün seçin.</p>
-            )}
-          </div>
+     <div className={s.image_container}>
+          {selectedProduct ? (
+            <>
+              {loading && (
+                <div className={s.loadingOverlay}>
+                  <div className={s.spinner}></div>
+                  <p>Yükleniyor...</p>
+                </div>
+              )}
+              <img
+                src={selectedProduct.imageSrc || NoImage}
+                onLoad={() => setLoading(false)}
+                onError={(e) => {
+                  e.currentTarget.src = NoImage;
+                  setLoading(false);
+                }}
+                alt="Ürün"
+                style={{ display: loading ? "none" : "block" }}
+              />
+            </>
+          ) : (
+            <p>Lütfen bir ürün seçin.</p>
+          )}
+        </div>
 
         {/* Sağ Tablo */}
         <div className={s.table_container}>
@@ -218,6 +220,4 @@ const Hidrolik = () => {
   );
 };
 
-export default Hidrolik;
-
-
+export default Pnomatik;

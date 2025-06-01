@@ -1,0 +1,118 @@
+.container {
+  width: 100%;
+  background-color: #fff;
+  min-height: 100vh;
+  padding: 150px 0;
+}
+.content2 {
+  font-family: "Teko", sans-serif;
+  display: flex;
+   gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.sidebar {
+  width: 320px;
+  padding: 24px;
+  border-right: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItem {
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.menuSubItem {
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  margin: 6px 0;
+}
+
+.menuSubItem:hover {
+  text-decoration: underline;
+}
+
+
+
+.content {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.contentInner img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.empty {
+  font-size: 18px;
+  color: #666;
+}
+.category_item {
+  font-weight: 500;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #e6e6e6;
+  margin: 5px 0;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  font-family: "Teko", sans-serif;
+  color: var(--blue_text);
+  font-size: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.category_item .span{
+     font-family: "Teko", sans-serif !important;
+  color: var(--blue_text);
+  font-size: 20px; 
+ }
+
+.category_item:hover {
+  background-color: #d0d0d0;
+}
+
+/* Product items */
+.product_item {
+  padding: 6px 16px;
+  margin: 3px 0;
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+  font-family: "Rubik", sans-serif;
+ }
+
+.product_item:hover {
+  background-color: rgba(217, 217, 217, 1);
+  border-left: 3px solid  var(--blue_text);
+  color: var(--blue_text);
+}
+.selected {
+  background-color: rgba(217, 217, 217, 1); /* Seçili arka plan rengi */
+  font-weight: 600;
+  color: var(--red);
+    border-left: 3px solid  var(--red);
+
+}
