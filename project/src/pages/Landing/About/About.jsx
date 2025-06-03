@@ -43,13 +43,10 @@ Tecrübeli ekibimizle birlikte, teknolojiyi yakından takip ederek sektörün ge
           </div>
         </div>
         <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            width: "100%",
-            gap: "2rem",
-          }}
+        
+          className={s.about_container}
         >
+          <div className={s.left_container}> 
           <div className={s.left}>
             <img src={AboutBg} alt="about" className={s.image} />
             <div className={s.experienceBox}>
@@ -58,6 +55,7 @@ Tecrübeli ekibimizle birlikte, teknolojiyi yakından takip ederek sektörün ge
                 <h2>10 +</h2>
                 <p>Yıl Tecrübe</p>
               </div>
+            </div>
             </div>
           </div>
           <div className={s.right}>

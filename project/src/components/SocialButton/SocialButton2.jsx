@@ -1,10 +1,11 @@
 import React from 'react'
 import s from "./SocialButton.module.css"
-import Whatsap from "../../assets/svg/whatsap"
-const SocialButton = () => {
+ import { FaWhatsapp } from "react-icons/fa";
+
+const SocialButton = ({height , width}) => {
   return (
-    <div className={s.button}>
-<Whatsap/>
+    <div style={{ width: width, height: height }} className={s.button}>
+<FaWhatsapp size={20} color='#fff'/>
     </div>
   )
 }

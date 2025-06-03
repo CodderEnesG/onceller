@@ -9,31 +9,29 @@
   color: #d80000;
   font-weight: 500;
   font-size: 1rem;
-    font-family: "Teko" , sans-serif;
-
+  font-family: "Teko", sans-serif;
 }
 
 .mainTitle {
   font-size: 2rem;
   font-weight: 500;
   margin: 0.5rem 0;
-    font-family: "Teko" , sans-serif;
-
+  font-family: "Teko", sans-serif;
 }
 
 .description {
-   margin: 0 auto 3rem;
+  margin: 0 auto 3rem;
   font-size: 1rem;
   color: rgba(108, 108, 108, 1);
-    font-family: "Rubik" , sans-serif;
-
+  font-family: "Rubik", sans-serif;
 }
 
 .cards {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
- }
+  gap: 2rem;
+}
 
 .card {
   background: #fff;
@@ -41,12 +39,10 @@
   width: 330px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease-in-out;
-
+  transition: all 0.3s ease-in-out;
 }
-.card:hover{
-      background: #f4f4f4;
-
+.card:hover {
+  background: #f4f4f4;
 }
 
 .image {
@@ -59,7 +55,7 @@
   font-size: 1.3rem;
   margin: 1rem 0 0.5rem;
   color: var(--blue_text);
-  font-family: "Teko" , sans-serif;
+  font-family: "Teko", sans-serif;
 }
 
 .moreLink {
@@ -68,10 +64,8 @@
   font-size: 0.9rem;
   text-decoration: none;
   display: flex;
-     justify-content: center;
-       font-family: "Teko" , sans-serif;
-
-
+  justify-content: center;
+  font-family: "Teko", sans-serif;
 }
 
 .icon {
@@ -105,11 +99,37 @@
   font-size: 1.2rem;
   margin-right: 0.5rem;
 }
-.endustry_text{
-    display: flex;
-    color: var(--blue_text);
-        font-family: "Teko" , sans-serif;
-        font-weight: 600;
-        font-size: 2rem;
-
+.endustry_text {
+  display: flex;
+  color: var(--blue_text);
+  font-family: "Teko", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
 }
+
+@media (max-width: 1024px) {
+  .card {
+    width: calc(50% - 2rem); /* 2'li düzende */
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    width: 100%; /* Alt alta */
+    max-width: 100%;
+  }
+
+  .cards {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+.endustry_text{
+  font-size: 1.5rem;
+}
+.cta{
+  align-items: center;
+}
+}
+

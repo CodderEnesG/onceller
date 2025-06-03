@@ -11,8 +11,10 @@ import { FaChevronDown } from "react-icons/fa6";
 import ChevDown from "../../assets/svg/chev_down";
 import Phone from "../../assets/svg/phone";
 import { Link } from "react-scroll";
+import { IoMdClose } from "react-icons/io";
+import { FaBars } from "react-icons/fa";
 
-function Navbar() {
+function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
   const [openMenu, setOpenMenu] = useState(null); // "products", "catalog", null
 
   const toggleMenu = (menu) => {
@@ -55,10 +57,11 @@ function Navbar() {
               to="about"
               smooth={true}
               duration={500}
-              offset={-100} // sabit navbar varsa ayarla
+              offset={-100} 
             >
               Hakkımızda
             </Link>
+         
 
             <li className={s.dropdown} onClick={() => toggleMenu("products")}>
               Ürünlerimiz
@@ -100,11 +103,29 @@ function Navbar() {
           <div className={s.phone_container}>
             <Phone />
             <div className={s.phone_info_container}>
-              {" "}
-              <span className={s.phone_title}>Bizi ara!</span>
+               <span className={s.phone_title}>Bizi ara!</span>
               <span className={s.phone_number}>0 (212) 549 50 57</span>
             </div>
           </div>
+
+          {!isSidebarOpen && (
+            <button
+              style={{ color: isScrolled ? "var(--primary1)" : "#fff" }}
+              className={s.sidebarToggle}
+              onClick={toggleSidebar}
+            >
+              <FaBars size={20} />
+            </button>
+          )}
+          {isSidebarOpen && (
+            <button
+              style={{ color: isScrolled ? "var(--primary1)" : "#fff" }}
+              className={s.sidebarToggle}
+              onClick={toggleSidebar}
+            >
+              <IoMdClose size={24} />
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import s from "./SocialButton.module.css"
 import Linkedin from "../../assets/svg/linkedin"
-const SocialButton = () => {
+const SocialButton = ({height , width}) => {
   return (
-    <div className={s.button}>
+    <div style={{ width: width, height: height }}  className={s.button}>
 <Linkedin/>
     </div>
   )
