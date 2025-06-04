@@ -157,3 +157,99 @@
   align-items: center;
   gap: 1.5rem;
 }
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 2rem 2rem;
+  }
+
+  .form_container {
+    padding: 2rem;
+  }
+
+  .contact_options {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact_options_right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .callButton {
+    width: 100%;
+    max-width: 100%;
+  }
+  .contact_options_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 2rem 1rem;
+  }
+
+  .form_title {
+    font-size: 24px;
+  }
+
+  .form_input,
+  .form_textarea {
+    font-size: 14px;
+  }
+
+  .form_button {
+    font-size: 14px;
+  }
+
+  .form_note {
+    font-size: 14px;
+  }
+
+  .contact_options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact_mail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form_container {
+    padding: 1.5rem 1rem;
+  }
+
+  .form_title {
+    font-size: 20px;
+  }
+
+  .form_button {
+    padding: 0.8rem;
+  }
+
+  .callButton {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .phoneIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .contact_icon {
+    padding: 0.3rem;
+  }
+}

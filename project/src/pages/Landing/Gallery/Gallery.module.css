@@ -68,3 +68,73 @@
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+
+/* VAR OLANLARA EK OLARAK */
+
+@media (max-width: 1024px) {
+  .gallery_header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gallery_title {
+    font-size: 28px;
+  }
+
+  .gallery_description {
+    font-size: 15px;
+  }
+
+  .gallery_button {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .gallery_images {
+    justify-content: center;
+  }
+
+  .gallery_images img {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery_title {
+    font-size: 24px;
+  }
+
+  .gallery_description {
+    font-size: 14px;
+  }
+
+  .gallery_images img {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery_section {
+    padding: 2rem 1rem;
+  }
+
+  .gallery_title {
+    font-size: 20px;
+  }
+
+  .gallery_button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .gallery_images {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .gallery_images img {
+    max-width: 100%;
+  }
+}

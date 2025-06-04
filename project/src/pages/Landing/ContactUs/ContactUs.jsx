@@ -26,6 +26,7 @@ const ContactUs = () => {
             Mesaj Gönder
           </button>
         </form>
+        <div className={s.contact_options_container}>
         <div className={s.contact_options}>
           <p className={s.form_note}>Veya direkt iletişime geçin</p>
           <div className={s.contact_options_right}>
@@ -51,6 +52,7 @@ const ContactUs = () => {
             <MailIcon />
             <span>abdurrahman@oncellerhidrolik.com</span>
           </div>
+        </div>
         </div>
       </div>
     </div>
