@@ -206,3 +206,50 @@
     font-family: "Rubik", sans-serif;
 
 }
+@media (max-width: 1024px) {
+  .container {
+    padding: 75px 0;
+  }
+  .content2{
+    flex-direction: column;
+    align-items: center;
+  }
+ .sidebar{
+  width: 75%;
+ }
+ .content{
+  width: 75%;
+  padding: 20px;
+ }
+ .prod_image{
+  width: 100% !important;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+ }
+ .category_item{
+  width: 100%;
+ }
+ .menu{
+    width: 100%;
+
+ }
+  
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 75px 0;
+  }
+  .content2{
+    flex-direction: column;
+    align-items: center;
+  }
+ .sidebar{
+  width: 100%;
+ }
+ .content{
+  width: 100%;
+ }
+  
+}

@@ -1,4 +1,4 @@
-import React, { useEffect , useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import s from "./Hidrolik.module.css";
 import data from "./hidrolik_data.json";
@@ -113,11 +113,11 @@ const Hidrolik = () => {
   const { productSlug } = useParams();
   const navigate = useNavigate();
 
-      const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      setLoading(true); // ürün değişince tekrar yükleniyor durumuna geç
-    }, [productSlug]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true); // ürün değişince tekrar yükleniyor durumuna geç
+  }, [productSlug]);
 
   const allProducts = data;
   const selectedProduct = allProducts.find(
@@ -167,30 +167,30 @@ const Hidrolik = () => {
         </div>
 
         {/* Orta Resim */}
-       <div className={s.image_container}>
-            {selectedProduct ? (
-              <>
-                {loading && (
-                  <div className={s.loadingOverlay}>
-                    <div className={s.spinner}></div>
-                    <p>Yükleniyor...</p>
-                  </div>
-                )}
-                <img
-                  src={selectedProduct.imageSrc || NoImage}
-                  onLoad={() => setLoading(false)}
-                  onError={(e) => {
-                    e.currentTarget.src = NoImage;
-                    setLoading(false);
-                  }}
-                  alt="Ürün"
-                  style={{ display: loading ? "none" : "block" }}
-                />
-              </>
-            ) : (
-              <p>Lütfen bir ürün seçin.</p>
-            )}
-          </div>
+        <div className={s.image_container}>
+          {selectedProduct ? (
+            <>
+              {loading && (
+                <div className={s.loadingOverlay}>
+                  <div className={s.spinner}></div>
+                  <p>Yükleniyor...</p>
+                </div>
+              )}
+              <img
+                src={selectedProduct.imageSrc || NoImage}
+                onLoad={() => setLoading(false)}
+                onError={(e) => {
+                  e.currentTarget.src = NoImage;
+                  setLoading(false);
+                }}
+                alt="Ürün"
+                style={{ display: loading ? "none" : "block" }}
+              />
+            </>
+          ) : (
+            <p>Lütfen bir ürün seçin.</p>
+          )}
+        </div>
 
         {/* Sağ Tablo */}
         <div className={s.table_container}>
@@ -213,11 +213,35 @@ const Hidrolik = () => {
             </table>
           )}
         </div>
+          <div className={s.upper_box_responsive}>
+            <div className={s.upper_box_overlay}></div>
+            <div className={s.upper_box_content}>
+              <h2 className={s.upper_box_title}>
+                Üretiminizi Bir Üst Seviyeye Taşıyın!
+              </h2>
+              <p className={s.upper_box_subtitle}>
+                Hidrolik, pnömatik ve zincirli transfer sistemlerimizle
+                kesintisiz verim ve maksimum performans garantisi.
+              </p>
+              <div className={s.upper_box_cta}>
+                <span>İletişime geç!</span>
+                <ChevButton />
+              </div>
+            </div>
+          </div>
+          <div className={s.social_responsive}>
+            <h4>Bizi takibe al!</h4>
+            <div className={s.icons}>
+              <SocialButton />
+              <SocialButton2 />
+              <SocialButton3 />
+            </div>
+          </div>
       </div>
+      
+        
     </div>
   );
 };
 
 export default Hidrolik;
-
-

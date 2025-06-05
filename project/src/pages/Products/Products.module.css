@@ -99,3 +99,56 @@ width: 100%;
     font-family: "Teko" ,sans-serif;
 
 }
+
+
+@media (max-width: 1024px) {
+  .products_grid {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .product_card {
+    max-width: 280px;
+    height: 290px;
+  }
+
+  .card_image {
+    height: 220px;
+  }
+
+  .card_header {
+    font-size: 1.1rem;
+    padding-left: 20px;
+  }
+}
+
+/* Mobil (640px altı) */
+@media (max-width: 640px) {
+  .products_grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product_card {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .card_image {
+    height: 200px;
+  }
+
+  .card_header {
+    font-size: 1rem;
+    height: auto;
+    padding: 1rem;
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .info_text {
+    font-size: 1rem;
+    text-align: center;
+  }
+}

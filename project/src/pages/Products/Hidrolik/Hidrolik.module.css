@@ -144,6 +144,11 @@
   margin-top: 30px;
   width: 410px;
 }
+.social_responsive {
+  margin-top: 30px;
+  width: 410px;
+  display: none;
+}
 
 .social h4 {
   font-size: 28px;
@@ -187,6 +192,42 @@
   min-height: 260px;
   overflow: hidden;
   text-align: left;
+}
+
+
+.upper_box {
+  position: relative;
+  background-image: url("../../../assets/about_box.png"); /* path'ini sen ayarlarsın */
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 260px;
+  overflow: hidden;
+  text-align: left;width: 410px;
+  height: 250px;
+  margin-top: 24px;
+}
+.upper_box_responsive {
+  position: relative;
+  background-image: url("../../../assets/about_box.png"); /* path'ini sen ayarlarsın */
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 260px;
+  overflow: hidden;
+  text-align: left;width: 410px;
+  height: 250px;
+  margin-top: 24px;
 }
 
 .upper_box_overlay {
@@ -256,3 +297,70 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+@media (max-width: 1024px) {
+  .container{
+    padding: 75px 0;
+  }
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+.social{
+  display: none;
+}
+.social_responsive{
+  display: flex;
+    flex-direction: column;
+gap: 24px;
+width: 75%;
+}
+.upper_box{
+  display: none;
+}
+.upper_box_responsive{
+  display: flex;
+    width: 75%;
+
+}
+.sidebar{
+  width: 75%;
+  padding: 0;
+}
+.category_list {
+  width: 100%;
+}
+.table_container{
+    width: 75%;
+    padding: 0;
+
+}
+}
+@media (max-width: 600px) {
+ 
+.social_responsive{
+  
+width: 100%;
+}
+ 
+.upper_box_responsive{
+     width:100%;
+     padding: 20px;
+
+}
+.sidebar{
+  width: 100%;
+}
+.category_list {
+  width: 100%;
+}
+.table_container{
+    width: 100%;
+
+}
+}
+

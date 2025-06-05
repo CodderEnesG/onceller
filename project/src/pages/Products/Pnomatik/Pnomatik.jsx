@@ -215,7 +215,32 @@ const Pnomatik = () => {
             </table>
           )}
         </div>
+           <div className={s.upper_box_responsive}>
+            <div className={s.upper_box_overlay}></div>
+            <div className={s.upper_box_content}>
+              <h2 className={s.upper_box_title}>
+                Üretiminizi Bir Üst Seviyeye Taşıyın!
+              </h2>
+              <p className={s.upper_box_subtitle}>
+                Hidrolik, pnömatik ve zincirli transfer sistemlerimizle
+                kesintisiz verim ve maksimum performans garantisi.
+              </p>
+              <div className={s.upper_box_cta}>
+                <span>İletişime geç!</span>
+                <ChevButton />
+              </div>
+            </div>
+          </div>
+          <div className={s.social_responsive}>
+            <h4>Bizi takibe al!</h4>
+            <div className={s.icons}>
+              <SocialButton />
+              <SocialButton2 />
+              <SocialButton3 />
+            </div>
+          </div>
       </div>
+     
     </div>
   );
 };

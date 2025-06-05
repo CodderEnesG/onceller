@@ -101,7 +101,7 @@ const Zincir = () => {
 
         <main className={s.content}>
             {selectedProduct && (
-                          <img src={selectedProduct?.prodImage} alt="asdlkfjlsk" />
+                          <img className={s.prod_image} src={selectedProduct?.prodImage} alt="" />
             )}  
           {selectedProduct ? (
             <div className={s.contentInner}>
@@ -122,7 +122,7 @@ const Zincir = () => {
             <p className={s.empty}>Lütfen bir ürün seçin.</p>
           )}
         </main>
-      </div>{" "}
+      </div>
     </div>
   );
 };

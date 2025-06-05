@@ -194,3 +194,106 @@
 .zoom_icon:hover {
   background-color: #b4202e; /* hover efekti */
 }
+
+
+/* Tablet - max 1024px */
+@media (max-width: 1024px) {
+  .main {
+    padding-bottom: 120px;
+  }
+
+  .images {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .image {
+    width: 260px;
+  }
+
+  .images img {
+    width: 260px;
+    height: 260px;
+  }
+
+  .modal_image {
+    max-width: 95%;
+    max-height: 75%;
+  }
+
+  .grid_title {
+    font-size: 1.7rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile - max 640px */
+@media (max-width: 640px) {
+  .gallery_grid {
+    text-align: center;
+  }
+
+  .section_title {
+    font-size: 1.2rem;
+  }
+
+  .grid_title {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    text-align: justify;
+  }
+
+  .images {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .images img {
+    width: 100%;
+    max-width: 90vw;
+    height: auto;
+  }
+
+  .modal_image {
+    max-width: 90%;
+    max-height: 65%;
+  }
+
+  .close {
+    font-size: 32px;
+    top: 20px;
+    right: 20px;
+  }
+
+  .left,
+  .right {
+    font-size: 36px;
+  }
+
+  .left {
+    left: 20px;
+  }
+
+  .right {
+    right: 20px;
+  }
+
+  .zoom_icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    padding: 6px;
+  }
+}
