@@ -115,7 +115,7 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
                     className={s.dropdown_menu_item}
                     style={{ cursor: "default", position: "relative", listStyle: "none" }}
                   >
-                    Zincirler
+                  <a style={{padding:0}} href="/products/zincir">Zincirler</a>
                     <ChevDown
                       className={s.chevron_submenu}
                       style={{ marginLeft: "0.3rem" }}
