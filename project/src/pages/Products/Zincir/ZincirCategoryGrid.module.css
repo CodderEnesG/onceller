@@ -1,0 +1,176 @@
+/* Container genişliği ve kart yerleşimi */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+ }
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Kartlar arası boşluk */
+  justify-content: flex-start;
+    padding: 100px 0px;
+
+}
+
+.card {
+  position: relative;
+  width: 240px; /* Kart genişliği */
+  height: 240px; /* Kart yüksekliği */
+  cursor: pointer;
+  overflow: hidden;
+  /* border-radius: 8px; */
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  background-color: #fff;
+  flex-shrink: 0;
+  margin-bottom: 2rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 240px;
+  height: 240px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Üstte yarı saydam kutu */
+.titleOverlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: var(--red); /* Siyah yarı saydam */
+  opacity: 0.9;
+  color: white;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  max-height: 3.2em; /* Yaklaşık 2 satır yüksekliği */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Başlık için stil */
+.cardTitle {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 2 satır sınırı */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+
+.intro_section {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.intro_left {
+  width: 60%;
+}
+
+.intro_right {
+  width: 35%;
+  text-align: center;
+}
+
+.intro_title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #144a7c;
+}
+
+.intro_line {
+  margin: 12px 0;
+  border: 1px solid #ddd;
+}
+
+.intro_subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.intro_text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.follow_title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--blue_text);
+  margin-bottom: 10px;
+  font-family: "Teko", sans-serif;
+}
+
+.social_container {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.icon_circle {
+  width: 35px;
+  height: 35px;
+  background-color: var(--red);
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button_download {
+  background-color: var(--red);
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  border: none;
+  margin-bottom: 8px;
+  cursor: pointer;
+    font-family: 'Teko', sans-serif;
+      letter-spacing: 2px;
+      width: 50%;
+      font-size: 1.2rem;
+
+}
+
+.or_text {
+  display: block;
+  font-weight: 700;
+  margin: 8px 0;
+  font-family: 'Teko', sans-serif;
+}
+
+.button_contact {
+  background-color: var(--red);
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+    font-family: 'Teko', sans-serif;
+      letter-spacing: 2px;
+      font-size: 1.2rem;
+  width: 50%;
+
+}

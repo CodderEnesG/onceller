@@ -7,3 +7,7 @@
     justify-content: center;
     display: flex;
 }
+
+.altGreen {
+  background: linear-gradient(135deg, #00e676, #00c853);
+}

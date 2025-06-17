@@ -5,7 +5,9 @@ import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Hidrolik from "./pages/Products/Hidrolik";
 import Pnomatik from "./pages/Products/Pnomatik";
-import Zincir from "./pages/Products/Zincir";
+import Zincir from "./pages/Products/Zincir/Zincir";
+import ZincirCategoryGrid from "./pages/Products/Zincir/ZincirCategoryGrid";
+import ZincirMain from "./pages/Products/Zincir";
 
 function App() {
   return (
@@ -14,12 +16,17 @@ function App() {
       <Route path="/products" element={<Products />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/contact_us" element={<Contact />} />
-       <Route path="/products/hidrolik/:productSlug" element={<Hidrolik />} />
+      <Route path="/products/hidrolik/:productSlug" element={<Hidrolik />} />
       <Route path="/products/pnomatik/:productSlug" element={<Pnomatik />} />
-      <Route path="/products/zincir/:slug" element={<Zincir />} />
-       <Route path="/products/hidrolik" element={<Hidrolik />} />
+      <Route path="/products/hidrolik" element={<Hidrolik />} />
       <Route path="/products/pnomatik" element={<Pnomatik />} />
-      <Route path="/products/zincir" element={<Zincir />} />
+
+      <Route path="/products/zincir" element={<ZincirMain />}>
+        <Route index element={<ZincirCategoryGrid />} />
+        <Route path="kategoriler" element={<ZincirCategoryGrid />} />
+              <Route path=":slug" element={<Zincir />} />
+
+      </Route>
     </Routes>
   );
 }

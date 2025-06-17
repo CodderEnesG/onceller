@@ -44,14 +44,8 @@ const ContactUs = () => {
           </div>
         </div>
         <div className={s.contact_options}>
-          <div className={s.contact_mail}>
-            <MailIcon />
-            <span>bilal@oncellerhidrolik.com</span>
-          </div>
-          <div className={s.contact_mail}>
-            <MailIcon />
-            <span>abdurrahman@oncellerhidrolik.com</span>
-          </div>
+        
+        
         </div>
         </div>
       </div>

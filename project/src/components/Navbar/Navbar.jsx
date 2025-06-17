@@ -1,24 +1,71 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import s from "./Navbar.module.css";
-import IconLogo from "../../assets/logo_icon.png";
-import TextLogo from "../../assets/logo_text.png";
+import IconLogo from "../../assets/logo_big.png";
 import LocationIcon from "../../assets/svg/location";
 import MailIcon from "../../assets/svg/mail";
 import SocialButton from "../SocialButton/SocialButton";
 import SocialButton2 from "../SocialButton/SocialButton2";
 import SocialButton3 from "../SocialButton/SocialButton3";
- import ChevDown from "../../assets/svg/chev_down";
+import ChevDown from "../../assets/svg/chev_down";
 import Phone from "../../assets/svg/phone";
 import { Link } from "react-scroll";
 import { IoMdClose } from "react-icons/io";
 import { FaBars } from "react-icons/fa";
 
+import data from "../../pages/Products/Zincir/renold_products.json"; // doğru yolu ayarla
+
+const slugify = (str) => {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\u00A0/g, " ")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+};
+
+const getTopCategories = (items, limit = 9) => {
+  const categoryCount = {};
+  for (const item of items) {
+    const cats = item?.categories?.slice(2); // senin yapına göre 3.kategoriden başlıyor
+    if (cats && cats.length > 0) {
+      const cat = cats[0];
+      categoryCount[cat] = (categoryCount[cat] || 0) + 1;
+    }
+  }
+
+   return Object.keys(categoryCount).sort().slice(0, limit);
+};
+
 function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
-  const [openMenu, setOpenMenu] = useState(null); // "products", "catalog", null
+  const [openMenu, setOpenMenu] = useState(null); // "products", "catalog", "zincirler", null
+  const navigate = useNavigate();
 
   const toggleMenu = (menu) => {
     setOpenMenu(openMenu === menu ? null : menu);
   };
+
+  const topCategories = getTopCategories(data);
+
+const handleCategoryClick = (category) => {
+  const trimmedCat = category.trim().replace(/\s*\/\s*$/, ""); // Sonundaki / kaldır
+
+  console.log(trimmedCat)
+  if (trimmedCat === "Yüksek Performanslı Zincir Diş…") {
+    navigate("/products/zincir/sprockets");
+  } else if (trimmedCat === "Yaprak Zincir") {
+    navigate("/products/zincir/leaf-chain");
+  } else {
+    const slug = slugify(trimmedCat);
+    navigate(`/products/zincir/kategoriler?path=${encodeURIComponent(slug)}`);
+  }
+  setOpenMenu(null);
+};
+
 
   return (
     <div className={s.main_container}>
@@ -47,20 +94,13 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
         <div className={s.content_down}>
           <a href="/" className={s.logo_container}>
             <img src={IconLogo} alt="icon" className={s.logo_icon} />
-            <img src={TextLogo} alt="text" className={s.logo_text} />
           </a>
 
           <ul className={s.menu}>
             <a href="/">Anasayfa</a>
-            <Link
-              to="about"
-              smooth={true}
-              duration={500}
-              offset={-100} 
-            >
+            <Link to="about" smooth={true} duration={500} offset={-100}>
               Hakkımızda
             </Link>
-         
 
             <li className={s.dropdown} onClick={() => toggleMenu("products")}>
               Ürünlerimiz
@@ -78,8 +118,36 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
               )}
             </li>
 
+            {/* Yeni Zincirler Dropdown */}
+            <li className={s.dropdown} onClick={() => toggleMenu("zincirler")}>
+              Zincirler
+              <ChevDown
+                className={`${s.chevron} ${
+                  openMenu === "zincirler" ? s.open : ""
+                }`}
+              />
+              {openMenu === "zincirler" && (
+                <ul className={s.dropdown_menu}>
+                  {topCategories.map((cat) => {
+                    const cleanCat = cat.replace(/\s*\/\s*$/, ""); // Sonundaki / işaretini kaldırır
+                    return (
+                      <li
+                        key={cleanCat}
+                        className={s.dropdown_menu_item}
+                        onClick={() => handleCategoryClick(cleanCat)}
+                        style={{ cursor: "pointer", listStyle: "none" , padding: "0.5rem 1rem" }}
+                      >
+                        {cleanCat}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </li>
+
             <a href="/gallery">Galeri</a>
             <a href="/contact_us">Bize ulaş</a>
+
             <li
               className={s.dropdown_catalog}
               onClick={() => toggleMenu("catalog")}
@@ -102,7 +170,7 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
           <div className={s.phone_container}>
             <Phone />
             <div className={s.phone_info_container}>
-               <span className={s.phone_title}>Bizi ara!</span>
+              <span className={s.phone_title}>Bizi ara!</span>
               <span className={s.phone_number}>0 (212) 549 50 57</span>
             </div>
           </div>

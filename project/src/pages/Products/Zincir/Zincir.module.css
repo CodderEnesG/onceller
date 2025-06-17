@@ -204,6 +204,19 @@
   background-color: #f4f4f4;
   font-weight: bold;
     font-family: "Rubik", sans-serif;
+}
+.button_download {
+  background-color: var(--red);
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  border: none;
+  margin-bottom: 8px;
+  cursor: pointer;
+    font-family: 'Teko', sans-serif;
+      letter-spacing: 2px;
+      width: 50%;
+      font-size: 1.2rem;
 
 }
 @media (max-width: 1024px) {
@@ -253,3 +266,4 @@
  }
   
 }
+

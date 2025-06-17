@@ -5,14 +5,16 @@ import ZincirkHero from "./ZincirHero";
 import Zincir from "./Zincir";
 import ContactUs from "../../Landing/ContactUs/ContactUs";
 import Sidebar from "../../../components/Sidebar/Sidebar";
+import ZincirCategoryGrid from "./ZincirCategoryGrid";
+import { Outlet } from "react-router-dom";
 
 const ZincirMain = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-  
-    const toggleSidebar = () => {
-      setIsSidebarOpen(!isSidebarOpen);
-    };
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
     <>
       <Navbar
@@ -21,9 +23,10 @@ const ZincirMain = () => {
         toggleSidebar={toggleSidebar}
         isSidebarOpen={isSidebarOpen}
       />
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />      <ZincirkHero />  
-      <Zincir />
-      <ContactUs/>
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />{" "}
+      <ZincirkHero />
+      <Outlet />
+      <ContactUs />
       <Footer />
     </>
   );
