@@ -68,9 +68,23 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
   return (
     <div className={s.main_container}>
       <div className={s.content}>
-        {/* ÜST */}
         <div className={s.content_up}>
-          {/* ...üst kısım aynı... */}
+          <div className={s.location_container}>
+            <LocationIcon style={{ marginRight: "1.5rem" }} />
+            <h4 className={s.location_info}>
+              Aykosan San. Sit. 6’lı A blok No:23,
+              <br /> 34490 İkitelli Osb/Başakşehir/İstanbul, Turkey
+            </h4>
+          </div>
+          <div className={s.mail_container}>
+            <MailIcon style={{ marginRight: "1.5rem" }} />
+            <h4 className={s.location_info}>info@oncellerhidrolik.com</h4>
+          </div>
+          <div className={s.social_container}>
+            <SocialButton />
+            <SocialButton2 />
+            <SocialButton3 />
+          </div>
         </div>
 
         {/* ALT */}
