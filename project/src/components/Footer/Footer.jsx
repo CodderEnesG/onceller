@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Footer.module.css";
-import IconLogo from "../../assets/logo_icon.png";
+import IconLogo from "../../assets/logo_big.png";
 import TextLogo from "../../assets/logo_text.png";
 import SocialButton from "../SocialButton/SocialButton";
 import SocialButton2 from "../SocialButton/SocialButton2";
@@ -16,8 +16,7 @@ const Footer = () => {
         <div className={s.first_footer_column}>
           <div className={s.logo_container}>
             <img src={IconLogo} alt="icon" className={s.logo_icon} />
-            <img src={TextLogo} alt="text" className={s.logo_text} />
-          </div>
+           </div>
           <div className={s.social_buttons}>
             <SocialButton />
             <SocialButton2 />
@@ -84,7 +83,6 @@ const Footer = () => {
       <div className={s.footer_column_responsive}>
         <div className={s.logo_container_responsive}>
           <img src={IconLogo} alt="icon" className={s.logo_icon} />
-          <img src={TextLogo} alt="text" className={s.logo_text} />
         </div>
         <div className={s.social_buttons_responsive}>
           <SocialButton />

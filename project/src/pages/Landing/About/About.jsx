@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./About.module.css";
 import DataIcon from "../../../assets/svg/data";
-import Logo from "../../../assets/logo_about.png";
+import Logo from "../../../assets/logo_big.png";
 import LogoIcon from "../../../assets/logo_icon_about.png"; // yolunu sen ayarlarsın
 import AboutBg from "../../../assets/about_bg.jpg";
 import Tools from "../../../assets/svg/tools";
@@ -68,12 +68,9 @@ Tecrübeli ekibimizle birlikte, teknolojiyi yakından takip ederek sektörün ge
             <h4 className={s.titleRed}>Vizyonumuz</h4>
             <p>{visionText}</p>
             <div className={s.bottom}>
-              <div>
-                <img src={LogoIcon} alt="logo" className={s.logo} />
-
+  
                 <img src={Logo} alt="logo" className={s.logo} />
-              </div>
-
+ 
               <button className={s.catalogButton}>
                 Kataloglarımız <span className={s.chevron}>▼</span>
               </button>
