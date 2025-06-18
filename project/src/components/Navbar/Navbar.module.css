@@ -56,11 +56,11 @@
 }
 
 .logo_icon {
-  height: 200px;
+  height: 120px;
   width: auto;
   margin-top: -1rem;
-    transform: rotate(270deg);
-
+  margin-left: 2rem;
+ 
 }
 
 .logo_text {
@@ -254,11 +254,19 @@ a {
     display: none;
   }
   .logo_icon {
-  height: 40px;
-  margin-top: -0.5rem;
+  /* height: 40px;
+  margin-top: -0.5rem; */
+  display: none;
   }
 
 .logo_text {
   height: 30px;
  }
-  }
+ .content_down {
+height: 100%; 
+padding: 0 1rem;
+ }
+ .content{
+  height: auto;
+ }
+    }

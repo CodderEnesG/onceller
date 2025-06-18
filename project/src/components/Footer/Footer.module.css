@@ -14,10 +14,9 @@
   flex-direction: column;
 }
 .logo_icon {
-  height: auto;
-  width: 120px;
-  rotate: 270deg;
-  margin-left: 2rem;}
+  height: 120px;
+  width: auto;
+   margin-left: 2rem;}
 .logo_container {
   margin-top: -2rem;
 }

@@ -38,11 +38,11 @@ const getTopCategories = (items, limit = 9) => {
     }
   }
 
-   return Object.keys(categoryCount).sort().slice(0, limit);
+  return Object.keys(categoryCount).sort().slice(0, limit);
 };
 
 function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
-  const [openMenu, setOpenMenu] = useState(null); 
+  const [openMenu, setOpenMenu] = useState(null);
   const navigate = useNavigate();
 
   const toggleMenu = (menu) => {
@@ -52,7 +52,7 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
   const topCategories = getTopCategories(data);
 
   const handleCategoryClick = (category) => {
-    const trimmedCat = category.trim().replace(/\s*\/\s*$/, ""); 
+    const trimmedCat = category.trim().replace(/\s*\/\s*$/, "");
 
     if (trimmedCat === "Yüksek Performanslı Zincir Diş…") {
       navigate("/products/zincir/sprockets");
@@ -89,7 +89,9 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
 
         {/* ALT */}
         <div className={s.content_down}>
-          <img src={IconLogo} alt="icon" className={s.logo_icon} />
+          <a href="/">
+            <img src={IconLogo} alt="icon" className={s.logo_icon} />
+          </a>
 
           <ul className={s.menu}>
             <a href="/">Anasayfa</a>
@@ -98,49 +100,54 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
             </Link>
 
             {/* Ürünlerimiz dropdown */}
-<li className={s.dropdown}>
-
+            <li className={s.dropdown}>
               Ürünlerimiz
               <ChevDown
                 className={`${s.chevron} ${
                   openMenu === "products" ? s.open : ""
                 }`}
               />
-                <ul className={s.dropdown_menu}>
-                  <a href="/products/hidrolik">Hidrolik</a>
-                  <a href="/products/pnomatik">Pnömatik</a>
+              <ul className={s.dropdown_menu}>
+                <a href="/products/hidrolik">Hidrolik</a>
+                <a href="/products/pnomatik">Pnömatik</a>
 
-                  {/* Zincirler submenu */}
-                  <li
-                    className={s.dropdown_menu_item}
-                    style={{ cursor: "default", position: "relative", listStyle: "none" }}
-                  >
-                  <a style={{padding:0}} href="/products/zincir">Zincirler</a>
-                    <ChevDown
-                      className={s.chevron_submenu}
-                      style={{ marginLeft: "0.3rem" }}
-                    />
-                    <ul className={s.dropdown_submenu}>
-                      {topCategories.map((cat) => {
-                        const cleanCat = cat.replace(/\s*\/\s*$/, "");
-                        return (
-                          <li
-                            key={cleanCat}
-                            className={s.dropdown_menu_item}
-                            onClick={() => handleCategoryClick(cleanCat)}
-                            style={{
-                              cursor: "pointer",
-                              listStyle: "none",
-                              padding: "0.5rem 1rem",
-                            }}
-                          >
-                            {cleanCat}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </li>
-                </ul>
+                {/* Zincirler submenu */}
+                <li
+                  className={s.dropdown_menu_item}
+                  style={{
+                    cursor: "default",
+                    position: "relative",
+                    listStyle: "none",
+                  }}
+                >
+                  <a style={{ padding: 0 }} href="/products/zincir">
+                    Zincirler
+                  </a>
+                  <ChevDown
+                    className={s.chevron_submenu}
+                    style={{ marginLeft: "0.3rem" }}
+                  />
+                  <ul className={s.dropdown_submenu}>
+                    {topCategories.map((cat) => {
+                      const cleanCat = cat.replace(/\s*\/\s*$/, "");
+                      return (
+                        <li
+                          key={cleanCat}
+                          className={s.dropdown_menu_item}
+                          onClick={() => handleCategoryClick(cleanCat)}
+                          style={{
+                            cursor: "pointer",
+                            listStyle: "none",
+                            padding: "0.5rem 1rem",
+                          }}
+                        >
+                          {cleanCat}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              </ul>
             </li>
 
             <a href="/gallery">Galeri</a>
@@ -198,5 +205,4 @@ function Navbar({ isSidebarOpen, isScrolled, toggleSidebar }) {
   );
 }
 
- 
 export default Navbar;

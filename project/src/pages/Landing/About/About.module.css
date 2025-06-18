@@ -76,10 +76,9 @@
 }
 
 .logo {
-  height: auto;
-  width: 120px;
-  rotate: 270deg;
-  margin-left: 2rem;
+  height: 120px;
+  width: auto;
+   margin-left: 2rem;
 }
 
 .catalogButton {
@@ -247,6 +246,10 @@ background-color: rgba(0, 0, 0, 0.6);
     font-size: 0.9rem;
   }
 
+  .bottom {
+     align-items: center;
+    justify-content: center;
+   }
   .upper_box_cta {
     font-size: 1.1rem;
   }
@@ -260,7 +263,7 @@ background-color: rgba(0, 0, 0, 0.6);
   }
 
   .logo {
-    height: 40px;
+margin-left: 0px;
   }
 
   .catalogButton {

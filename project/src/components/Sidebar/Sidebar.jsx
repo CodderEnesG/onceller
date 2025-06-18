@@ -9,13 +9,57 @@ import ChevDown from "../../assets/svg/chev_down";
 import LocationIcon from "../../assets/svg/location";
 import MailIcon from "../../assets/svg/mail";
 import { IoMdClose } from "react-icons/io";
+import data from "../../pages/Products/Zincir/renold_products.json";  
+import { useNavigate } from "react-router-dom";
 
+const slugify = (str) => {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\u00A0/g, " ")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+};
+
+const getTopCategories = (items, limit = 9) => {
+  const categoryCount = {};
+  for (const item of items) {
+    const cats = item?.categories?.slice(2); // senin yapına göre 3.kategoriden başlıyor
+    if (cats && cats.length > 0) {
+      const cat = cats[0];
+      categoryCount[cat] = (categoryCount[cat] || 0) + 1;
+    }
+  }
+
+  return Object.keys(categoryCount).sort().slice(0, limit);
+};
 const Sidebar = ({ isOpen, toggleSidebar ,  }) => {
     const [openMenu, setOpenMenu] = useState(null); // "products", "catalog", null
+    const navigate = useNavigate();
   
     const toggleMenu = (menu) => {
       setOpenMenu(openMenu === menu ? null : menu);
     };
+
+      const topCategories = getTopCategories(data);
+
+  const handleCategoryClick = (category) => {
+    const trimmedCat = category.trim().replace(/\s*\/\s*$/, "");
+
+    if (trimmedCat === "Yüksek Performanslı Zincir Diş…") {
+      navigate("/products/zincir/sprockets");
+    } else if (trimmedCat === "Yaprak Zincir") {
+      navigate("/products/zincir/leaf-chain");
+    } else {
+      const slug = slugify(trimmedCat);
+      navigate(`/products/zincir/kategoriler?path=${encodeURIComponent(slug)}`);
+    }
+    setOpenMenu(null);
+  };
   return (
     <div className={`${s.sidebar} ${isOpen ? s.open : s.closed}`}>
       <a onClick={toggleSidebar} href="/" className={s.menuItem}>
@@ -59,13 +103,47 @@ const Sidebar = ({ isOpen, toggleSidebar ,  }) => {
                   openMenu === "products" ? s.open : ""
                 }`}
               />
-              {openMenu === "products" && (
-                <ul className={s.dropdown_menu}>
-                  <a href="/products/hidrolik">Hidrolik</a>
-                  <a href="/products/pnomatik">Pnömatik</a>
-                  <a href="/products/zincir">Zincirler</a>
-                </ul>
-              )}
+                     <ul className={s.dropdown_menu}>
+                <a href="/products/hidrolik">Hidrolik</a>
+                <a href="/products/pnomatik">Pnömatik</a>
+
+                {/* Zincirler submenu */}
+                <li
+                  className={s.dropdown_menu_item}
+                  style={{
+                    cursor: "default",
+                    position: "relative",
+                    listStyle: "none",
+                  }}
+                >
+                  <a style={{ padding: 0 }} href="/products/zincir">
+                    Zincirler
+                  </a>
+                  <ChevDown
+                    className={s.chevron_submenu}
+                    style={{ marginLeft: "0.3rem" }}
+                  />
+                  <ul className={s.dropdown_submenu}>
+                    {topCategories.map((cat) => {
+                      const cleanCat = cat.replace(/\s*\/\s*$/, "");
+                      return (
+                        <li
+                          key={cleanCat}
+                          className={s.dropdown_menu_item}
+                          onClick={() => handleCategoryClick(cleanCat)}
+                          style={{
+                            cursor: "pointer",
+                            listStyle: "none",
+                            padding: "0.5rem 1rem",
+                          }}
+                        >
+                          {cleanCat}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              </ul>
             </a>
 
             <div className={s.social_container}>

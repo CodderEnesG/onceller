@@ -252,8 +252,9 @@ const ZincirCategoryGrid = () => {
           <button className={s.button_contact}>İletişime geç</button>
         </div>
       </section>
-
+<div className="" style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20px" }}>
       <GridView node={currentNode} path={pathSlugs} navigate={navigate} />
+      </div>
     </div>
   );
 };
