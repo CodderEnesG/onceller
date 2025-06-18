@@ -124,6 +124,8 @@ const GridView = ({ node, path = [], navigate }) => {
                   const segments = fromUrl.pathname.split("/").filter(Boolean);
                   const lastSegment = segments[segments.length - 1];
                   navigate(`/products/zincir/${lastSegment}`);
+                        setTimeout(() => window.scrollTo(0, 450), 0);
+
                 }
               } else {
                 const slugPath = fullPath.map(slugify).join("|");

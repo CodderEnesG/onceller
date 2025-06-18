@@ -1,6 +1,6 @@
-import React , {useState} from "react";
+import React, { useState , useEffect } from "react";
 import s from "./Sidebar.module.css";
- import { Link } from "react-scroll";
+import { Link } from "react-scroll";
 import SocialButton from "../SocialButton/SocialButton";
 import SocialButton2 from "../SocialButton/SocialButton2";
 import SocialButton3 from "../SocialButton/SocialButton3";
@@ -9,8 +9,9 @@ import ChevDown from "../../assets/svg/chev_down";
 import LocationIcon from "../../assets/svg/location";
 import MailIcon from "../../assets/svg/mail";
 import { IoMdClose } from "react-icons/io";
-import data from "../../pages/Products/Zincir/renold_products.json";  
+import data from "../../pages/Products/Zincir/renold_products.json";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const slugify = (str) => {
   return str
@@ -37,15 +38,22 @@ const getTopCategories = (items, limit = 9) => {
 
   return Object.keys(categoryCount).sort().slice(0, limit);
 };
-const Sidebar = ({ isOpen, toggleSidebar ,  }) => {
-    const [openMenu, setOpenMenu] = useState(null); // "products", "catalog", null
-    const navigate = useNavigate();
-  
-    const toggleMenu = (menu) => {
-      setOpenMenu(openMenu === menu ? null : menu);
-    };
+const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const [openMenu, setOpenMenu] = useState(null); // "products", "catalog", null
+  const navigate = useNavigate();
+const [isChainSubmenuOpen, setIsChainSubmenuOpen] = useState(false);
 
-      const topCategories = getTopCategories(data);
+  const toggleMenu = (menu) => {
+    setOpenMenu(openMenu === menu ? null : menu);
+  };
+
+    const location = useLocation();
+
+useEffect(() => {
+  setOpenMenu(null);        // tüm menüleri kapat
+}, [location.pathname]);
+
+  const topCategories = getTopCategories(data);
 
   const handleCategoryClick = (category) => {
     const trimmedCat = category.trim().replace(/\s*\/\s*$/, "");
@@ -65,118 +73,138 @@ const Sidebar = ({ isOpen, toggleSidebar ,  }) => {
       <a onClick={toggleSidebar} href="/" className={s.menuItem}>
         Ana Sayfa
       </a>
-      <Link   smooth={true}
-              duration={500}
-              offset={-100}  onClick={toggleSidebar} to="about" className={s.menuItem}>
+      <Link
+        smooth={true}
+        duration={500}
+        offset={-100}
+        onClick={toggleSidebar}
+        to="about"
+        className={s.menuItem}
+      >
         Hakkımızda
       </Link>
       <a onClick={toggleSidebar} href="/gallery" className={s.menuItem}>
         Galeri
       </a>
-  
 
       <a onClick={toggleSidebar} href="/contact_us" className={s.menuItem}>
         Bize ulaş
       </a>
-           <a
-              className={s.dropdown}
-              onClick={() => toggleMenu("catalog")}
-            >
-              Kataloglarımız
-              <ChevDown
-                className={`${s.chevron} ${
-                  openMenu === "catalog" ? s.open : ""
-                }`}
-              />
-              {openMenu === "catalog" && (
-                <ul  className={s.dropdown_menu}>
-                  <a>2024 Kataloğu</a>
-                  <a>Teknik Bilgiler</a>
-                </ul>
-              )}
+      <a className={s.dropdown} onClick={() => toggleMenu("catalog")}>
+        Kataloglarımız
+        <ChevDown
+          className={`${s.chevron} ${openMenu === "catalog" ? s.open : ""}`}
+        />
+        {openMenu === "catalog" && (
+          <ul className={s.dropdown_menu}>
+            <a>2024 Kataloğu</a>
+            <a>Teknik Bilgiler</a>
+          </ul>
+        )}
+      </a>
+
+      <a className={s.dropdown} onClick={() => toggleMenu("products")}>
+        Ürünlerimiz
+        <ChevDown
+          className={`${s.chevron} ${openMenu === "products" ? s.open : ""}`}
+        />
+        <ul className={s.dropdown_menu}>
+          <a href="/products/hidrolik">Hidrolik</a>
+          <a href="/products/pnomatik">Pnömatik</a>
+
+          {/* Zincirler submenu */}
+          <li
+            className={s.dropdown_menu_item}
+            style={{
+              cursor: "default",
+              position: "relative",
+              listStyle: "none",
+            }}
+          >
+            <a style={{ padding: 0 }} href="/products/zincir">
+              Zincirler
             </a>
+         <ChevDown
+  className={s.chevron_submenu}
+  style={{ marginLeft: "0.3rem", cursor: "pointer" }}
+  onClick={(e) => {
+    e.stopPropagation();
+    setIsChainSubmenuOpen((prev) => !prev);
+  }}
+/>
 
-                <a className={s.dropdown} onClick={() => toggleMenu("products")}>
-              Ürünlerimiz
-              <ChevDown
-                className={`${s.chevron} ${
-                  openMenu === "products" ? s.open : ""
-                }`}
-              />
-                     <ul className={s.dropdown_menu}>
-                <a href="/products/hidrolik">Hidrolik</a>
-                <a href="/products/pnomatik">Pnömatik</a>
+       {isChainSubmenuOpen && (
+  <ul className={s.dropdown_submenu}>
+    {topCategories.map((cat) => {
+      const cleanCat = cat.replace(/\s*\/\s*$/, "");
+      const handleClick = (e) => {
+        e.stopPropagation();
+        handleCategoryClick(cleanCat);
+        toggleSidebar();
+        setOpenMenu(null);
+        setIsChainSubmenuOpen(false); // submenu kapansın
+      };
 
-                {/* Zincirler submenu */}
-                <li
-                  className={s.dropdown_menu_item}
-                  style={{
-                    cursor: "default",
-                    position: "relative",
-                    listStyle: "none",
-                  }}
-                >
-                  <a style={{ padding: 0 }} href="/products/zincir">
-                    Zincirler
-                  </a>
-                  <ChevDown
-                    className={s.chevron_submenu}
-                    style={{ marginLeft: "0.3rem" }}
-                  />
-                  <ul className={s.dropdown_submenu}>
-                    {topCategories.map((cat) => {
-                      const cleanCat = cat.replace(/\s*\/\s*$/, "");
-                      return (
-                        <li
-                          key={cleanCat}
-                          className={s.dropdown_menu_item}
-                          onClick={() => handleCategoryClick(cleanCat)}
-                          style={{
-                            cursor: "pointer",
-                            listStyle: "none",
-                            padding: "0.5rem 1rem",
-                          }}
-                        >
-                          {cleanCat}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              </ul>
-            </a>
+      return (
+        <li
+          style={{ listStyle: "none" }}
+          key={cleanCat}
+          className={s.dropdown_menu_item}
+        >
+          <button
+            onClick={handleClick}
+            style={{
+              cursor: "pointer",
+              listStyle: "none",
+              padding: "0.5rem 1rem",
+              background: "none",
+              border: "none",
+              color: "white",
+              textAlign: "left",
+              width: "100%",
+              fontSize: "13px",
+            }}
+          >
+            {cleanCat}
+          </button>
+        </li>
+      );
+    })}
+  </ul>
+)}
 
-            <div className={s.social_container}>
-            <SocialButton width={"30px"} height={"30px"} />
-            <SocialButton2 width={"30px"} height={"30px"} />
-            <SocialButton3 width={"30px"} height={"30px"} />
-          </div>
+          </li>
+        </ul>
+      </a>
 
-               <div className={s.phone_container}>
-            <Phone />
-                <span className={s.phone_title}>Bizi ara!</span>
-              <span className={s.phone_number}>0 (212) 549 50 57</span>
-           </div>
-                 <div className={s.location_container}>
-            <LocationIcon style={{ marginBottom: "0.5rem" }} />
-            <h4 className={s.location_info}>
-              Aykosan San. Sit. 6’lı A blok No:23,
-              34490 İkitelli Osb/Başakşehir/İstanbul, Turkey
-            </h4>
-          </div>
-          <div className={s.mail_container}>
-            <MailIcon style={{ marginBottom: "0.5rem" }} />
-            <h4 className={s.location_info}>info@oncellerhidrolik.com</h4>
-          </div>
+      <div className={s.social_container}>
+        <SocialButton width={"30px"} height={"30px"} />
+        <SocialButton2 width={"30px"} height={"30px"} />
+        <SocialButton3 width={"30px"} height={"30px"} />
+      </div>
 
-                    {isOpen && (
-                      <button
-                         className={s.sidebarToggle}
-                        onClick={toggleSidebar}
-                      >
-                        <IoMdClose color="#fff" size={24} />
-                      </button>
-                    )}
+      <div className={s.phone_container}>
+        <Phone />
+        <span className={s.phone_title}>Bizi ara!</span>
+        <span className={s.phone_number}>0 (212) 549 50 57</span>
+      </div>
+      <div className={s.location_container}>
+        <LocationIcon style={{ marginBottom: "0.5rem" }} />
+        <h4 className={s.location_info}>
+          Aykosan San. Sit. 6’lı A blok No:23, 34490 İkitelli
+          Osb/Başakşehir/İstanbul, Turkey
+        </h4>
+      </div>
+      <div className={s.mail_container}>
+        <MailIcon style={{ marginBottom: "0.5rem" }} />
+        <h4 className={s.location_info}>info@oncellerhidrolik.com</h4>
+      </div>
+
+      {isOpen && (
+        <button className={s.sidebarToggle} onClick={toggleSidebar}>
+          <IoMdClose color="#fff" size={24} />
+        </button>
+      )}
     </div>
   );
 };

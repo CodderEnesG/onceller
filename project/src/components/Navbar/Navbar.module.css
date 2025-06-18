@@ -254,10 +254,9 @@ a {
     display: none;
   }
   .logo_icon {
-  /* height: 40px;
-  margin-top: -0.5rem; */
-  display: none;
-  }
+margin: 0;
+  height: 60px;
+  width: auto;  }
 
 .logo_text {
   height: 30px;
@@ -265,6 +264,7 @@ a {
  .content_down {
 height: 100%; 
 padding: 0 1rem;
+align-items: center;
  }
  .content{
   height: auto;
